@@ -91,7 +91,7 @@ namespace Insight
 	///	@designer	Tankle L.
 	///
 	///	@brief		...
-	/// @modified	Tankle L.	2015.11.6
+	///	@modified	Tankle L.	2015.11.6
 
 	class IImage abstract
 	{
@@ -159,7 +159,7 @@ namespace Insight
 	///	@designer	Tankle L.
 	///
 	///	@brief		...
-	/// @modified	Tankle L.	2015.11.6
+	///	@modified	Tankle L.	2015.11.6
 
 	class ImageBitmap24 : public IImage
 	{
@@ -185,7 +185,7 @@ namespace Insight
 	///	@designer	Tankle L.
 	///
 	///	@brief		...
-	/// @modified	Tankle L.	2015.11.6
+	///	@modified	Tankle L.	2015.11.6
 
 	class ImageBitmap32 : public IImage
 	{

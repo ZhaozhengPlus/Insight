@@ -1,6 +1,6 @@
 ///	@file		Image.cpp
 ///	@brief		...
-/// @licence	...
+///	@licence	...
 ///	@designer	Tankle L.
 ///	@date		First created at < November 6th, 2015 >
 ///
@@ -23,7 +23,7 @@
 ///	@designer	Tankle L.
 ///
 ///	@brief		...
-/// @modified	Tankle L.	2015.11.6
+///	@modified	Tankle L.	2015.11.6
 
 Insight::IImage::IImage() : _pBuffer(nullptr)
 {}
@@ -74,7 +74,7 @@ void Insight::IImage::Blank()
 ///	@designer	Tankle L.
 ///
 ///	@brief		...
-/// @modified	Tankle L.	2015.11.6
+///	@modified	Tankle L.	2015.11.6
 
 Insight::ImageBitmap24::ImageBitmap24()
 {}
@@ -132,7 +132,7 @@ Insight::IMAGEFILETYPE Insight::ImageBitmap24::GetImageFileType() const
 ///	@designer	Tankle L.
 ///
 ///	@brief		...
-/// @modified	Tankle L.	2015.11.6
+///	@modified	Tankle L.	2015.11.6
 
 Insight::ImageBitmap32::ImageBitmap32()
 {}
