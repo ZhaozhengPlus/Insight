@@ -10,7 +10,7 @@ using namespace Insight;
 int _tmain(int argc, _TCHAR* argv[])
 {
 	ImageBitmap24	imgbmp24;
-
+	ImageBitmap24	imgbmp24_b;
 
 	return 0;
 }
