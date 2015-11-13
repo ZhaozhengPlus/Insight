@@ -1,0 +1,17 @@
+/ImgRes/
+/Lab0/Debug/
+/Lab0/Release/
+/Lab0/ipch/
+/Lab0/*.sdf
+/Lab0/*.suo
+/Lab0/*.opensdf
+/Lab0/Lab0/Debug/
+
+*.ipch
+*.obj
+*.log
+*.pch
+*.idb
+*.pdb
+*.tlog
+*.log
