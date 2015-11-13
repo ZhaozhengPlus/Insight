@@ -11,6 +11,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	ImageBitmap24	imgbmp24;
 
+
 	return 0;
 }
 
