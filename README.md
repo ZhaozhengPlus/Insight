@@ -1,5 +1,2 @@
-# Insight Project
-## Computer Binocular Vision for Three-D. Remodelling Technique
- Novembor 1st, 2015
- 
-# 
+# Insight
+This is a C++ Project to implements "Computer Binocular Vision for Three-D. Remodelling Tech"
