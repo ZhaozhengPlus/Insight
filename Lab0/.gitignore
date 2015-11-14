@@ -39,6 +39,7 @@ build/
 *.tmp
 *.tmp_proj
 *.log
+*.tlog
 *.vspscc
 *.vssscc
 .builds
@@ -53,6 +54,7 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+*.ipch
 
 # Visual Studio profiler
 *.psess
