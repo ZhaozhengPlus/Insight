@@ -80,12 +80,15 @@
     <Text Include="ReadMe.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Image.h" />
-    <ClInclude Include="LabRoom0.h" />
+    <ClInclude Include="Insight.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="LabRoom0.cpp" />
     <ClCompile Include="stdafx.cpp">

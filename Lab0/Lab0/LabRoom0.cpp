@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 
-#include "LabRoom0.h"
+#include "Insight.h"
 
 using namespace Insight;
 
