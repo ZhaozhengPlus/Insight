@@ -15,6 +15,9 @@
 
 // TODO:  在此处引用程序需要的其他头文件
 
+#include <iostream>
+#include <fstream>
+
 #ifdef _DEBUG
 
 #pragma comment(lib, "opencv_ts300d.lib")
