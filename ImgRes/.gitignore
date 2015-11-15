@@ -2,3 +2,13 @@
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+*.JPG
+*.JPEG
+*.PNG
+*.BMP
+
+*.jpg
+*.jpeg
+*.png
+*.bmp

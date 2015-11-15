@@ -139,8 +139,8 @@ namespace Insight
 		}
 
 	public:		// Interfaces.
-		virtual int				FromFile(const std::string& fileName) = 0;
-		virtual int				ToFile(const std::string& fileName) = 0;
+		virtual void			FromFile(const std::string& fileName) = 0;
+		virtual void			ToFile(const std::string& fileName) = 0;
 
 		virtual IMAGEFILETYPE	GetImageFileType() const = 0;
 		
@@ -169,9 +169,11 @@ namespace Insight
 		virtual ~ImageBitmap24();
 
 	public:
-		virtual int				FromFile(const std::string& fileName) override;
-		virtual int				ToFile(const std::string& fileName) override;
+		virtual void			FromFile(const std::string& fileName) override;
+		virtual void			ToFile(const std::string& fileName) override;
 		virtual IMAGEFILETYPE	GetImageFileType() const override;
+
+	protected:
 
 	};
 
@@ -195,9 +197,11 @@ namespace Insight
 		virtual ~ImageBitmap32();
 
 	public:
-		virtual int				FromFile(const std::string& fileName) override;
-		virtual int				ToFile(const std::string& fileName) override;
+		virtual void			FromFile(const std::string& fileName) override;
+		virtual void			ToFile(const std::string& fileName) override;
 		virtual IMAGEFILETYPE	GetImageFileType() const override;
+
+	protected:
 
 	};
 
