@@ -172,11 +172,13 @@ void Insight::ImageBitmap24::FromFile(const std::string& fileName)
 		{
 			for (int x = 0; x < _resolution.width; ++x)
 			{
-				_pBuffer[index] = PixelRGB( pChannel[(x + y*_resolution.width) + y*alignoffset],		// r
-											pChannel[1 + (x + y*_resolution.width) + y*alignoffset],	// g
-											pChannel[2 + (x + y*_resolution.width) + y*alignoffset]);	// b
+				_pBuffer[index] = PixelRGB( pChannel[2],	// r
+											pChannel[1],	// g
+											pChannel[0]);	// b
+				pChannel += 3;
 				++index;
 			}
+			pChannel += alignoffset;
 		}
 
 		// release resource
