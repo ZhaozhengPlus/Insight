@@ -41,9 +41,15 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <ExecutablePath>F:\OpenCV_3\opencv\build\x86\vc12\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>F:\OpenCV_3\opencv\build\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\OpenCV_3\opencv\build\x86\vc12\lib;F:\OpenCV_3\opencv\build\x86\vc12\staticlib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <ExecutablePath>F:\OpenCV_3\opencv\build\x86\vc12\bin;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>F:\OpenCV_3\opencv\build\include\;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\OpenCV_3\opencv\build\x86\vc12\lib;F:\OpenCV_3\opencv\build\x86\vc12\staticlib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
