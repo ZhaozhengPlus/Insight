@@ -136,8 +136,6 @@ void Insight::ImageBitmap24::FromFile(const std::string& fileName)
 
 		// Clear old buffer.
 		SAFE_DELETE_ARRAY(_pBuffer);
-		_resolution.width = 0;
-		_resolution.height = 0;
 
 		// create temporary buffer and read pixel24 data.
 		BYTE* pBuf24 = new BYTE[btr];
@@ -147,10 +145,15 @@ void Insight::ImageBitmap24::FromFile(const std::string& fileName)
 		{
 			excep.WriteInfo(string("Cannot read image data."), -1);
 			file.close();
+			_resolution.width = 0;
+			_resolution.height = 0;
+
 			delete[] pBuf24;
 			
 			throw excep;
 		}
+		// Close file.
+		file.close();
 
 		// create pixel buffer and convert 24bit-data into 32bit-data
 		_pBuffer = new PIXEL[_resolution.width*_resolution.height];
@@ -173,37 +176,12 @@ void Insight::ImageBitmap24::FromFile(const std::string& fileName)
 											pChannel[1 + (x + y*_resolution.width) + y*alignoffset],	// g
 											pChannel[2 + (x + y*_resolution.width) + y*alignoffset]);	// b
 				++index;
-			}			
-		}
-	}
-
-	/*
-	DWORD offset = 0;
-	DWORD	btr = 0;
-	DWORD	br = 0;
-	LPBYTE	lpTemp = NULL;
-
-	if (NULL == hFile)
-		return false;
-
-	if (ReadFile(hFile, &fh, sizeof(fh), &br, NULL))
-	{
-		if (ReadFile(hFile, &bf, sizeof(bf), &br, NULL))
-		{
-			btr = fh.bfSize - fh.bfOffBits;
-			if (btr != 0)
-			{
-				lpBuf = new BYTE[btr];
-				ReadFile(hFile, lpBuf, btr, &br, NULL);
-				bufSize = btr;
-				return true;
 			}
-			return true;
 		}
-		return false;
+
+		// release resource
+		delete[] pBuf24;
 	}
-	return false;
-	*/
 }
 
 void Insight::ImageBitmap24::ToFile(const std::string& fileName)
@@ -255,6 +233,63 @@ void Insight::ImageBitmap32::FromFile(const std::string& fileName)
 
 void Insight::ImageBitmap32::ToFile(const std::string& fileName)
 {
+	ofstream			file(fileName, ios_base::out | ios_base::binary);
+	Insight::Exception	excep;
+	BITMAPFILEHEADER	bfh;
+	BITMAPINFOHEADER	bih;
+
+	if (!file.is_open())
+	{
+		excep.WriteInfo(string("Cannot open file to write data."), -1);
+
+		throw excep;
+	}
+	
+
+	bfh.bfType = 0x4d42;	// BM
+	bfh.bfSize = sizeof(bfh) + sizeof(bih) + 
+		_resolution.width * _resolution.height * sizeof(PIXEL);
+	bfh.bfOffBits = sizeof(bfh)+sizeof(bih);
+	bfh.bfReserved1 = 0;
+	bfh.bfReserved2 = 0;
+
+	memset(&bih, 0, sizeof(bih));
+	bih.biBitCount = 32;
+	bih.biCompression = BI_RGB;
+	bih.biHeight = _resolution.height;
+	bih.biWidth	= _resolution.width;
+	bih.biPlanes = 1;
+	bih.biSize = sizeof(bih);
+	bih.biSizeImage = _resolution.width * _resolution.height * sizeof(PIXEL);
+
+	file.write(reinterpret_cast<char*>(&bfh), sizeof(bfh));
+	if (file.fail())
+	{
+		excep.WriteInfo(string("Cannot write bitmap-file-header into the file."), -1);
+		file.close();
+
+		throw excep;
+	}
+
+	file.write(reinterpret_cast<char*>(&bih), sizeof(bih));
+	if (file.fail())
+	{
+		excep.WriteInfo(string("Cannot write bitmap-info-header into the file."), -1);
+		file.close();
+
+		throw excep;
+	}
+
+	file.write(reinterpret_cast<char*>(_pBuffer), _resolution.width * _resolution.height * sizeof(PIXEL));
+	if (file.fail())
+	{
+		excep.WriteInfo(string("Cannot write image data the file."), -1);
+		file.close();
+
+		throw excep;
+	}
+
+	file.close();
 }
 
 
