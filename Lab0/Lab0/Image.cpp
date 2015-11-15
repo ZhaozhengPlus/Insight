@@ -85,11 +85,7 @@ Insight::ImageBitmap24::ImageBitmap24(const RESOLUTION& reso)
 
 Insight::ImageBitmap24::~ImageBitmap24()
 {
-	if (nullptr != _pBuffer)
-	{
-		delete[] _pBuffer;
-		_pBuffer = nullptr;
-	}
+	SAFE_DELETE_ARRAY(_pBuffer);
 }
 
 void Insight::ImageBitmap24::FromFile(const std::string& fileName)
@@ -250,11 +246,7 @@ Insight::ImageBitmap32::ImageBitmap32(const RESOLUTION& reso)
 
 Insight::ImageBitmap32::~ImageBitmap32()
 {
-	if (nullptr != _pBuffer)
-	{
-		delete[] _pBuffer;
-		_pBuffer = nullptr;
-	}
+	SAFE_DELETE_ARRAY(_pBuffer);
 }
 
 void Insight::ImageBitmap32::FromFile(const std::string& fileName)
