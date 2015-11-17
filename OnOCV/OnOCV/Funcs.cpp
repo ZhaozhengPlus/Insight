@@ -1,4 +1,4 @@
-///	@file		utilities.h
+///	@file		Funcs.h
 ///	@brief		...
 ///	@licence	...
 ///	@designer	Tankle L.
@@ -9,11 +9,6 @@
 ///	@programmer	Tankle L.
 ///	@programmer ...
 
-#ifndef _UTILITIES_H
-#define	_UTILITIES_H
+#include "stdafx.h"
 
-
-
-
-
-#endif // !_UTILITIES_H
+#include "lab.h"

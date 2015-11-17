@@ -38,6 +38,9 @@
     <ClCompile Include="OnOCV.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Funcs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.md" />

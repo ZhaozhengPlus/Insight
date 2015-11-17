@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 
+#include "lab.h"
+
 using namespace std;
 using namespace cv;
 
