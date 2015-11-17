@@ -15,13 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lab.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Funcs.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,5 +38,11 @@
     <ClCompile Include="OnOCV.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Funcs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.md" />
   </ItemGroup>
 </Project>
