@@ -14,6 +14,9 @@
 
 
 
+int		CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv::Mat& imgMat);
+
+
 
 
 #endif // !_FUNCS_H

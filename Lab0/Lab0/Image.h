@@ -14,74 +14,8 @@
 
 #pragma once
 
-namespace Insight
+namespace insight
 {
-
-
-
-
-	typedef	struct Pixel24
-	{
-		BYTE	r;
-		BYTE	g;
-		BYTE	b;
-	} PIXEL24, *PPIXEL24;
-
-	typedef	unsigned int	PIXEL, PIXEL32;
-	typedef PIXEL			*PPIXEL, *PPIXEL32;
-	typedef BYTE			PIXELCHANNEL, *PPIXELCHANNEL;
-
-	typedef enum _ImageFileType
-	{
-		IFT_Unknown = 0,
-		IFT_BMP_24,
-		IFT_BMP_32,
-		IFT_JPEG,
-		IFT_PNG
-	} IMAGEFILETYPE, *PIMAGEFILETYPE;
-
-	typedef struct resolution
-	{
-		resolution() : width(0), height(0)
-		{}
-
-		resolution(const resolution& reso) :
-			width(reso.width), height(reso.height)
-		{}
-
-		int		width;
-		int		height;
-	} RESOLUTION, *PRESOLUTION;
-	
-	_inline PIXELCHANNEL GetPixelAValue(PIXEL pixel)
-	{
-		return LOBYTE((pixel) >> 24);
-	}
-
-	_inline PIXELCHANNEL GetPixelRValue(PIXEL pixel)
-	{
-		return LOBYTE((pixel) >> 16);
-	}
-
-	_inline PIXELCHANNEL GetPixelGValue(PIXEL pixel)
-	{
-		return LOBYTE(((WORD)(pixel)) >> 8);
-	}
-
-	_inline PIXELCHANNEL GetPixelBValue(PIXEL pixel)
-	{
-		return LOBYTE(pixel);
-	}
-
-	_inline	PIXEL PixelRGB(BYTE r, BYTE g, BYTE b)
-	{
-		return (PIXEL)(((BYTE)(b) | ((WORD)((BYTE)(g)) << 8)) | (((DWORD)(BYTE)(r)) << 16) | (((DWORD)(BYTE)(0xff)) << 24));
-	}
-
-	_inline	PIXEL PixelARGB(BYTE a, BYTE r, BYTE g, BYTE b)
-	{
-		return (PIXEL)(((BYTE)(b) | ((WORD)((BYTE)(g)) << 8)) | (((DWORD)(BYTE)(r)) << 16) | (((DWORD)(BYTE)(a)) << 24));
-	}
 
 
 

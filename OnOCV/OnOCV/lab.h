@@ -11,5 +11,6 @@
 
 #pragma once
 
+#include "Types.h"
 #include "utilities.h"
 #include "Funcs.h"
