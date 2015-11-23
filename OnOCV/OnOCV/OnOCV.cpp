@@ -16,6 +16,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	int nGradients = CalculateRelativePxGradient3x3(pGradients, img);
 
+	
+
 	return 0;
 }
 
