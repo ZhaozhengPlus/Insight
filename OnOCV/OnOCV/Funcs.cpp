@@ -112,7 +112,6 @@ int		OutputAsTxt_PxGradient3x3(const std::string& fileName, RELATIVEPXGRADIENT_3
 
 	file << "Gradient[N]\tX-RadixValue\tII-RadixValue" << endl;
 
-	int	binValue;
 	for (int i = 0; i < count; ++i)
 	{
 		file << i << "\t" << pGradients[i] << "\t" << IIRadix2XRadix_8bit(pGradients[i]) << endl;
