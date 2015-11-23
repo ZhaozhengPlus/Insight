@@ -14,6 +14,7 @@
 #include "lab.h"
 
 using namespace cv;
+using namespace std;
 
 int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv::Mat& imgMat)
 {
@@ -97,4 +98,23 @@ int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv:
 		}
 	}
 	return (width - 2)*(height - 2);
+}
+
+
+int		OutputAsTxt_PxGradient3x3(const std::string& fileName, RELATIVEPXGRADIENT_3x3* const pGradients, const int& count)
+{
+	ofstream	file(fileName);
+
+	if (!file.is_open())
+	{
+		return -1;		// Cannot open file.
+	}
+
+	file << "Gradient[N]\tX-RadixValue\tII-RadixValue" << endl;
+
+	int	binValue;
+	for (int i = 0; i < count; ++i)
+	{
+		file << i << "\t" << pGradients[i] << "\t" << IIRadix2XRadix_8bit(pGradients[i]) << endl;
+	}
 }

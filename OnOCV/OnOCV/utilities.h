@@ -84,4 +84,18 @@ _inline float	GetPixelBrightnessWithAlpha(PIXEL px)
 	return (((float)GetPixelRValue(px)) + ((float)GetPixelGValue(px)) + ((float)GetPixelBValue(px))) / 3.0f *((float)GetPixelAValue(px)) /255.0f;
 }
 
+_inline int IIRadix2XRadix_8bit(int in)
+{
+	int out = 0;
+
+	out |= (in & 128);
+	out |= (in & 64);
+	out |= (in & 32);
+	out |= (in & 16);
+	out |= (in & 8);
+	out |= (in & 4);
+	out |= (in & 2);
+	out |= (in & 1);
+}
+
 #endif // !_UTILITIES_H
