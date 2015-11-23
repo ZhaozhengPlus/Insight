@@ -88,14 +88,14 @@ _inline int IIRadix2XRadix_8bit(int in)
 {
 	int out = 0;
 
-	out |= (in & 128);
-	out |= (in & 64);
-	out |= (in & 32);
-	out |= (in & 16);
-	out |= (in & 8);
-	out |= (in & 4);
-	out |= (in & 2);
-	out |= (in & 1);
+	out += ((in & 128) >> 7) * 10000000;
+	out += ((in & 64) >> 6) *  1000000;
+	out += ((in & 32) >> 5) *  100000;
+	out += ((in & 16) >> 4) *  10000;
+	out += ((in & 8) >> 3) *   1000;
+	out += ((in & 4) >> 2) *   100;
+	out += ((in & 2) >> 1) *   10;
+	out += (in & 1);
 
 	return out;
 }
