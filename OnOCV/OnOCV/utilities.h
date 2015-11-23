@@ -96,6 +96,8 @@ _inline int IIRadix2XRadix_8bit(int in)
 	out |= (in & 4);
 	out |= (in & 2);
 	out |= (in & 1);
+
+	return out;
 }
 
 #endif // !_UTILITIES_H
