@@ -49,6 +49,16 @@ _inline float	GetPixelBright(PIXEL px)
 	return (((float)GetPixelRValue(px)) + ((float)GetPixelGValue(px)) + ((float)GetPixelBValue(px))) / 3.0f;
 }
 
+_inline float	GetPixelBright(BYTE r, BYTE g, BYTE b)
+{
+	return (((float)r) + ((float)g) + ((float)b)) / 3.0f;
+}
+
+_inline float	GetPixelBrightWithAlpha(BYTE a, BYTE r, BYTE g, BYTE b)
+{
+	return (((float)r) + ((float)g) + ((float)b)) / 3.0f *((float)a) / 255.0f;
+}
+
 _inline float	GetPixelBrightWithAlpha(PIXEL px)
 {
 	return (((float)GetPixelRValue(px)) + ((float)GetPixelGValue(px)) + ((float)GetPixelBValue(px))) / 3.0f *((float)GetPixelAValue(px)) /255.0f;
