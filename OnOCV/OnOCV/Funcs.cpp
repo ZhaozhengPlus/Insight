@@ -96,5 +96,5 @@ int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv:
 
 		}
 	}
-	return 0;
+	return (width - 2)*(height - 2);
 }
