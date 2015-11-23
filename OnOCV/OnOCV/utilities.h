@@ -13,6 +13,12 @@
 #define	_UTILITIES_H
 
 
+#define	SAFE_RELEASE(pObj)			{if(pObj) {(pObj)->Release(); pObj = nullptr;}}
+#define	SAFE_DELETE(pObj)			{if(pObj) {delete pObj; pObj = nullptr;}}
+#define SAFE_DELETE_ARRAY(pObj)		{if(pObj) {delete[] pObj; pObj = nullptr;}}
+#define SAFE_FREE(pObj)				{if(pObj) {free(pObj); pObj = nullptr;}}
+#define	SAFE_CLOSEHANDLE(pObj)		{if(pObj && pObj != INVALID_HANDLE_VALUE) {CloseHandle(pObj); pObj = nullptr;}}
+
 
 _inline PIXELCHANNEL GetPixelAValue(PIXEL pixel)
 {
