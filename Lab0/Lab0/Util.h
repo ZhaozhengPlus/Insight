@@ -18,3 +18,44 @@
 #define SAFE_DELETE_ARRAY(pObj)		{if(nullptr != pObj) {delete[] pObj; pObj = NULL;}}
 #define SAFE_FREE(pObj)				{if(nullptr != pObj) {free(pObj); pObj = NULL;}}
 #define	SAFE_CLOSEHANDLE(pObj)		{if(nullptr != pObj || INVALID_HANDLE_VALUE != pObj) {CloseHandle(pObj); pObj = NULL;}}
+
+
+namespace insight
+{
+
+
+
+	_inline PIXELCHANNEL GetPixelAValue(PIXEL pixel)
+	{
+		return LOBYTE((pixel) >> 24);
+	}
+
+	_inline PIXELCHANNEL GetPixelRValue(PIXEL pixel)
+	{
+		return LOBYTE((pixel) >> 16);
+	}
+
+	_inline PIXELCHANNEL GetPixelGValue(PIXEL pixel)
+	{
+		return LOBYTE(((WORD)(pixel)) >> 8);
+	}
+
+	_inline PIXELCHANNEL GetPixelBValue(PIXEL pixel)
+	{
+		return LOBYTE(pixel);
+	}
+
+	_inline	PIXEL PixelRGB(BYTE r, BYTE g, BYTE b)
+	{
+		return (PIXEL)(((BYTE)(b) | ((WORD)((BYTE)(g)) << 8)) | (((DWORD)(BYTE)(r)) << 16) | (((DWORD)(BYTE)(0xff)) << 24));
+	}
+
+	_inline	PIXEL PixelARGB(BYTE a, BYTE r, BYTE g, BYTE b)
+	{
+		return (PIXEL)(((BYTE)(b) | ((WORD)((BYTE)(g)) << 8)) | (((DWORD)(BYTE)(r)) << 16) | (((DWORD)(BYTE)(a)) << 24));
+	}
+
+
+
+
+}
