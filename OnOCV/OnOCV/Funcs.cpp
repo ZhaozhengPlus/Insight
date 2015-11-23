@@ -16,7 +16,7 @@
 using namespace cv;
 using namespace std;
 
-int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv::Mat& imgMat)
+int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3*& pGradients, const cv::Mat& imgMat)
 {
 	int width = imgMat.cols;
 	int height = imgMat.rows;
@@ -34,7 +34,7 @@ int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv:
 		pPxB = imgMat.ptr<Vec3b>(y - 1);
 		for (int x = 1; x < width - 1; ++x)
 		{
-			pGradients[x + (width - 2)*y] = 0;
+			pGradients[x-1 + (width - 2)*(y-1)] = 0;
 
 			{
 				// Gradient 0.
@@ -42,56 +42,56 @@ int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv:
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 0;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 0;
 
 				// Gradient 1.
 				if (GetPixelBrightness(pPxT[x - 1]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 1;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 1;
 
 				// Gradient 2.
 				if (GetPixelBrightness(pPxT[x]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 2;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 2;
 
 				// Gradient 3.
 				if (GetPixelBrightness(pPxT[x + 1]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 3;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 3;
 
 				// Gradient 4.
 				if (GetPixelBrightness(pPxM[x + 1]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 4;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 4;
 
 				// Gradient 5.
 				if (GetPixelBrightness(pPxB[x + 1]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 5;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 5;
 
 				// Gradient 7.
 				if (GetPixelBrightness(pPxB[x]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 6;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 6;
 
 				// Gradient 8.
 				if (GetPixelBrightness(pPxB[x - 1]) > GetPixelBrightness(pPxM[x]))
 					regValue = 1;
 				else
 					regValue = 0;
-				pGradients[x + (width - 2)*y] |= regValue << 7;
+				pGradients[x - 1 + (width - 2)*(y - 1)] |= regValue << 7;
 			}
 
 
@@ -114,7 +114,7 @@ int		OutputAsTxt_PxGradient3x3(const std::string& fileName, RELATIVEPXGRADIENT_3
 
 	for (int i = 0; i < count; ++i)
 	{
-		file << i << "\t" << pGradients[i] << "\t" << IIRadix2XRadix_8bit(pGradients[i]) << endl;
+		file << i << "\t" << (int)pGradients[i] << "\t" << IIRadix2XRadix_8bit(pGradients[i]) << endl;
 	}
 
 	return count;

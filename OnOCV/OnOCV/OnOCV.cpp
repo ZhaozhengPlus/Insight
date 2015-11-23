@@ -15,6 +15,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	RELATIVEPXGRADIENT_3x3*	pGradients = nullptr;
 
 	int nGradients = CalculateRelativePxGradient3x3(pGradients, img);
+	OutputAsTxt_PxGradient3x3("..\\..\\FireField\\testres_01_Gradient3x3.txt", pGradients, nGradients);
 
 	SAFE_DELETE_ARRAY(pGradients);
 

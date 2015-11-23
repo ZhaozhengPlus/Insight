@@ -16,7 +16,7 @@
 
 
 // Image Analysis
-int		CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3* pGradients, const cv::Mat& imgMat);
+int		CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3*& pGradients, const cv::Mat& imgMat);
 
 
 // File Process
