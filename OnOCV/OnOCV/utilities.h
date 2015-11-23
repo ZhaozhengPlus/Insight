@@ -44,22 +44,36 @@ _inline	PIXEL PixelARGB(BYTE a, BYTE r, BYTE g, BYTE b)
 	return (PIXEL)(((BYTE)(b) | ((WORD)((BYTE)(g)) << 8)) | (((DWORD)(BYTE)(r)) << 16) | (((DWORD)(BYTE)(a)) << 24));
 }
 
-_inline float	GetPixelBright(PIXEL px)
+_inline float	GetPixelBrightness(PIXEL px)
 {
 	return (((float)GetPixelRValue(px)) + ((float)GetPixelGValue(px)) + ((float)GetPixelBValue(px))) / 3.0f;
 }
 
-_inline float	GetPixelBright(BYTE r, BYTE g, BYTE b)
+_inline float	GetPixelBrightness(BYTE r, BYTE g, BYTE b)
 {
 	return (((float)r) + ((float)g) + ((float)b)) / 3.0f;
 }
 
-_inline float	GetPixelBrightWithAlpha(BYTE a, BYTE r, BYTE g, BYTE b)
+_inline float	GetPixelBrightness(cv::Vec3b pixel)
+{
+	// pixel.val[1]    pixel.val[2]    pixel.val[2]
+	//      r               g               b
+	return (((float)pixel.val[0]) + ((float)pixel.val[1]) + ((float)pixel.val[2])) / 3.0f;
+}
+
+_inline float	GetPixelBrightnessWithAlpha(BYTE a, BYTE r, BYTE g, BYTE b)
 {
 	return (((float)r) + ((float)g) + ((float)b)) / 3.0f *((float)a) / 255.0f;
 }
 
-_inline float	GetPixelBrightWithAlpha(PIXEL px)
+_inline float	GetPixelBrightnessWithAlpha(cv::Vec4b pixel)
+{
+	// pixel.val[0]    pixel.val[1]    pixel.val[2]    pixel.val[2]
+	//      a               r               g               b
+	return (((float)pixel.val[1]) + ((float)pixel.val[2]) + ((float)pixel.val[3])) / 3.0f *((float)pixel.val[0]) / 255.0f;
+}
+
+_inline float	GetPixelBrightnessWithAlpha(PIXEL px)
 {
 	return (((float)GetPixelRValue(px)) + ((float)GetPixelGValue(px)) + ((float)GetPixelBValue(px))) / 3.0f *((float)GetPixelAValue(px)) /255.0f;
 }
