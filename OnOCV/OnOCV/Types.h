@@ -49,7 +49,9 @@ typedef struct resolution
 
 
 typedef unsigned char	RELATIVEPXGRADIENT_3x3;		// Total 8-bits.
-typedef unsigned int	RELATIVEPXGRADIENT_5x5;		// Total 32-bits, 8 High-Order-Bits Reserved.
+typedef unsigned short	RELATIVEPXGRADIENT_5x5;		// Total 16-bits.
+typedef unsigned int	RELATIVEPXGRADIENT_9x9;		// Total 32-bits.
+
 
 
 
