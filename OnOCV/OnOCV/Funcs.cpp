@@ -30,9 +30,9 @@ int	CalculateRelativePxGradient3x3(RELATIVEPXGRADIENT_3x3*& pGradients, const cv
 	register unsigned int	regPos = 0;
 	for (int y = 1; y < height - 1; ++y)
 	{
-		pPxT = imgMat.ptr<Vec3b>(y + 1);
+		pPxT = imgMat.ptr<Vec3b>(y - 1);
 		pPxM = imgMat.ptr<Vec3b>(y);
-		pPxB = imgMat.ptr<Vec3b>(y - 1);
+		pPxB = imgMat.ptr<Vec3b>(y + 1);
 		for (int x = 1; x < width - 1; ++x)
 		{
 			regPos = x - 1 + (width - 2)*(y - 1);
@@ -125,11 +125,11 @@ int	CalculateRelativePxGradient5x5(RELATIVEPXGRADIENT_5x5*& pGradients, const cv
 	register unsigned int	regPos = 0;
 	for (int y = 2; y < height - 2; ++y)
 	{
-		pPxT = imgMat.ptr<Vec3b>(y + 2);
-		pPxTM = imgMat.ptr<Vec3b>(y + 1);
+		pPxT = imgMat.ptr<Vec3b>(y - 2);
+		pPxTM = imgMat.ptr<Vec3b>(y - 1);
 		pPxM = imgMat.ptr<Vec3b>(y);
-		pPxBM = imgMat.ptr<Vec3b>(y - 1);
-		pPxB = imgMat.ptr<Vec3b>(y - 2);
+		pPxBM = imgMat.ptr<Vec3b>(y + 1);
+		pPxB = imgMat.ptr<Vec3b>(y + 2);
 
 		for (int x = 2; x < width - 2; ++x)
 		{

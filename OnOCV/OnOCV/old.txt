@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+# November 25th, 2015
+
+	QueryPerformanceFrequency(&g_perfFeq);
+
+	TIMETOUCH(g_perfCountOld);
+	Mat		imgL = imread("..\\..\\ImgRes\\Small_L_S0.jpg");
+	TIMETOUCH(g_perfCountNew);
+	PRINTTIME("Load Left Image");
+
+	TIMETOUCH(g_perfCountOld);
+	Mat		imgR = imread("..\\..\\ImgRes\\Small_R_S0.jpg");
+	TIMETOUCH(g_perfCountNew);
+	PRINTTIME("Load Right Image");
+
+
+	RELATIVEPXGRADIENT_5x5*	pGradientsL = nullptr;
+	RELATIVEPXGRADIENT_5x5*	pGradientsR = nullptr;
+
+	TIMETOUCH(g_perfCountOld);
+	int nGradientsL = CalculateRelativePxGradient5x5(pGradientsL, imgL);
+	TIMETOUCH(g_perfCountNew);
+	PRINTTIME("Analyzed Left Image");
+
+
+	TIMETOUCH(g_perfCountOld);
+	int nGradientsR = CalculateRelativePxGradient5x5(pGradientsR, imgR);
+	TIMETOUCH(g_perfCountNew);
+	PRINTTIME("Analyzed Right Image");
+
+
+	TIMETOUCH(g_perfCountOld);
+	OutputAsTxt_PxGradient5x5("..\\..\\FireField\\aloeL_01_Gradient5x5.txt", pGradientsL, nGradientsL);
+	TIMETOUCH(g_perfCountNew);
+	PRINTTIME("Exported Left Image");
+
+	TIMETOUCH(g_perfCountOld);
+	OutputAsTxt_PxGradient5x5("..\\..\\FireField\\aloeR_01_Gradient5x5.txt", pGradientsR, nGradientsR);
+	TIMETOUCH(g_perfCountNew);
+	PRINTTIME("Exported Right Image");
+
+	SAFE_DELETE_ARRAY(pGradientsL);
+	SAFE_DELETE_ARRAY(pGradientsR);
