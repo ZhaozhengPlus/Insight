@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="old.txt" />
     <Text Include="ReadMe.md" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Old">
+      <UniqueIdentifier>{f16efb9e-6feb-49b7-aa0c-1767c55cc9f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -47,5 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.md" />
+    <Text Include="old.txt">
+      <Filter>Old</Filter>
+    </Text>
   </ItemGroup>
 </Project>
