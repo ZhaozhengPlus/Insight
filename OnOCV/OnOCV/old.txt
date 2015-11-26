@@ -46,7 +46,7 @@
 	PRINTTIME("Exported Right Image");
 
 	SAFE_DELETE_ARRAY(pGradientsL);
-	SAFE_DELETE_ARRAY(pGradientsR);	SAFE_DELETE_ARRAY(pGradientsR);
+	SAFE_DELETE_ARRAY(pGradientsR);
 
 
 
