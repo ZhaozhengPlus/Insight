@@ -18,12 +18,7 @@ LARGE_INTEGER	g_perfCountNew;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Mat	img = imread("..\\..\\ImgRes\\t2.png");
 
-	RELATIVEPXGRADIENT_3x3*	pGra = nullptr;
-	int nGra = CalculateRelativePxGradient3x3(pGra, img);
-
-	OutputAsTxt_PxGradient3x3("..\\..\\FireField\\t2_3x3.txt", pGra, nGra);
 
 	return 0;
 }

@@ -46,4 +46,19 @@
 	PRINTTIME("Exported Right Image");
 
 	SAFE_DELETE_ARRAY(pGradientsL);
-	SAFE_DELETE_ARRAY(pGradientsR);
+	SAFE_DELETE_ARRAY(pGradientsR);	SAFE_DELETE_ARRAY(pGradientsR);
+
+
+
+
+
+
+
+# November 25th, 2015
+
+	Mat	img = imread("..\\..\\ImgRes\\t2.png");
+
+	RELATIVEPXGRADIENT_3x3*	pGra = nullptr;
+	int nGra = CalculateRelativePxGradient3x3(pGra, img);
+
+	OutputAsTxt_PxGradient3x3("..\\..\\FireField\\t2_3x3.txt", pGra, nGra);
